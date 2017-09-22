@@ -28,20 +28,8 @@ class uitestUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        
-        let app = XCUIApplication()
-        let textfieldTextField = app.textFields["textField"]
-        
-        textfieldTextField.tap()
-        textfieldTextField.typeText("Hello World!")
-        app.buttons["button"].tap()
-        
-        XCTAssertEqual(app.staticTexts["label"].label, "Hello World!")
-        
+        func testExample() {
+        XCUIApplication()/*@START_MENU_TOKEN@*/.buttons["button"]/*[[".buttons[\"Button\"]",".buttons[\"button\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
     
 }
