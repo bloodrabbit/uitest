@@ -11,14 +11,17 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
+    let imagePicker = UIImagePickerController()
+    var delegate: protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         // Do any additional setup after loading the view, typically from a nib.
+       self.imagePicker.delegate = delegate
         
-        self.textField.autocorrectionType = UITextAutocorrectionType.no
+       // self.textField.autocorrectionType = UITextAutocorrectionType.no
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +30,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(_ sender: Any) {
-        self.label.text = self.textField.text;
+        
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        self.present(imagePicker, animated: true, completion: nil)
+        
+       // self.label.text = self.textField.text;
     }
 
 }
